@@ -1,0 +1,16 @@
+.main {
+	background-image: url('../images/tvshowbackground1.jpg');
+}
+
+.cent {
+	text-align: center;
+}
+
+.boxed {
+	background-color: white;
+	margin: 0 auto 0;
+}
+
+.stage {
+	text-align: center;
+}
