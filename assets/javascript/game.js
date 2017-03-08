@@ -13,7 +13,7 @@ Words.List[8] = "janethevirgin";
 Words.List[9] = "seinfeld";
 Words.List[10] = "rachelmaddow";
 
-Words.Length = Words.List.Length;
+Words.length = Words.List.length;
 
 //..the js for the array ..//
 Main = {};
@@ -21,9 +21,9 @@ Main.WordArray = [];
 Main.WordUArray = [];
 
 Main.Guesses = 7;
-Main.Numinwordbank = Words.Length;
+Main.Numinwordbank = Words.length;
 
-Main.Word = "test";
+Main.Word = "";
 Main.WordU = "";
 
 Main.PullWord = function() {
@@ -31,13 +31,18 @@ Main.PullWord = function() {
 }
 
 Main.SetUnderline = function(){
-	Main.Pullword();
-	for (i=0; i<Main.Word.Length; i++){
+	Main.PullWord();
+	console.log(Main.Word);
+	for (i=0; i<Main.Word.length; i++){
 		Main.WordArray[i] = Main.Word.charAt(i)
-		Main.WordUArray[i] = "_";
+		Main.WordUArray[i] = "_ ";
 	}
 
 	Main.WordU = Main.WordUArray.join("");
 	document.getElementById("currentword").innerHTML= Main.WordU;
-	document.getElementById("NumLetters").innerHTML= Main.Word.Length;
+	document.getElementById("NumLetters").innerHTML= Main.Word.length;
 }
+
+Main.SetUnderline();
+
+Main.GuessesRemaining = function(){}

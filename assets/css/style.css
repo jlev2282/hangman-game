@@ -49,3 +49,7 @@
 	width: 100%;
 	height: auto;
 }
+
+#currentword {
+	font-size: 18px;
+}
