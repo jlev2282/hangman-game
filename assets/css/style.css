@@ -2,6 +2,14 @@
 	background-image: url('../images/tvshowbackground1.jpg');
 }
 
+.cont {
+	width: 700px;
+	position: fixed;
+	top: 50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+}
+
 .cent {
 	text-align: center;
 }
@@ -13,4 +21,25 @@
 
 .stage {
 	text-align: center;
+}
+
+.dashed {
+	border: dashed;
+	border-color: #000;
+}
+
+.solid {
+	border: solid;
+	border-color: #000;
+}
+
+.foot {
+	position: fixed;
+	bottom: 0;
+	background-color: white;
+}
+
+.displayimg {
+	width: 100%;
+	height: auto;
 }
