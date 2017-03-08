@@ -45,4 +45,18 @@ Main.SetUnderline = function(){
 
 Main.SetUnderline();
 
-Main.GuessesRemaining = function(){}
+document.onkeyup = function(event){
+	var userguess=event.key;
+	console.log(userguess);
+	if (LettersGuessed.indexOf(userguess)===-1){
+		LettersGuessed.push(userguess);
+		document.getElementById("letters-guessed").innerHTML=LettersGuessed;
+	}
+
+};
+
+LettersGuessed = [];
+
+Main.GuessesRemaining = function keyPress(){
+
+}
