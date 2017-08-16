@@ -1,4 +1,13 @@
+confirmGame = confirm("Would you like to test your TV trivia knowledge?");
+
 //..the js for the word array bank..//
+main = {
+	wordBank: ["Westworld", "StarTrek", "Legion", "GameofThrones", "Archer", "Simpsons","BobsBurgers","JaneTheVirgin","SeinFeld","RachelMaddow"],
+	
+};
+
+
+
 Words= {};
 Words.List= [];
 
