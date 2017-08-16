@@ -1,21 +1,35 @@
-var userName= prompt("What is your name");
+var userName= prompt("HI. What's your name");
 
 // Define "startGame" function
 function startGame (){
-    var confirmgame = confirm("Would you like to play a game "+ userName);
+    var confirmGame = confirm("Would you like to play a game "+ userName);
 
-    if(confirmgame){
+    if(confirmGame){
         wordSelect();
     }
     else{
         alert("Come on "+userName+" play");
+        var confirmGame2 = confirm("Would you like to play a game "+userName+"....pleaaaase");
+
+        if(confirmGame2){
         wordSelect();
+        }
+        else{
+            alert("Too bad. You're playing -_-");
+            wordSelect();
+        }
     }
 };
 
 // Run "StartGame" function
 startGame();
 
+// Store random wordbank as "currentWord". Break "currentword" into an array of letters called "selectedWord"
+// Assign number of dashes on screen equal to length of "selectedWord" array
+// Define "selectDashes" array
+// loop over "selectedWord" and push "_" into "selectDashes" array
+// Define counter for guesses remaining as "guessesRemaining". Set equal to "5"
+// Define "lettersRemaining" as an array equal to "selectedWord.length"
 function wordSelect(){
     alert("Press Enter to Begin");
 
@@ -23,8 +37,19 @@ function wordSelect(){
     wordBank =["Westworld", "StarTrek", "Legion", "GameofThrones", "Archer", "Simpsons","BobsBurgers","JaneTheVirgin","SeinFeld","RachelMaddow"];
 
     // Pick random word from Wordbank
-    currentWord = wordBank[(Math.floor(Math.random()*Main.Numinwordbank))];
+    currentWord = wordBank[(Math.floor(Math.random()*wordBank.length+1))];
+    console.log(currentWord);
 
+        for(var i=0; i<currentWord.lenth; i++) {
+            selectedWord=[];
+            selectDashes=[];
+            
+            currentWord.charAt(i).push(selectedWord);
+            selectDashes.push("_");
+        }
+    lettersRemaining=selectedWord.length;    
+    guessesRemaining=5;
+    $("guessCounter").text(guessesRemaining);
 };
 
 
@@ -32,15 +57,9 @@ function wordSelect(){
 
 
 
-// Store random wordbank as "currentWord". Break "currentword" into an array of letters called "selectedWord"
 
-// Assign number of dashes on screen equal to length of "selectedWord" array
 
-// Define "selectDashes" array
-// loop over "selectedWord" and push "_" into "selectDashes" array
 
-// Define counter for guesses remaining as "guessesRemaining". Set equal to "5"
-// Define "lettersRemaining" as an array equal to "selectedWord.length"
 
 // Event listener to capture upkeys.
 // Store upkey event as "currentGuess"
