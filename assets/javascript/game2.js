@@ -1,13 +1,36 @@
+var userName= prompt("What is your name");
+
 // Define "startGame" function
+function startGame (){
+    var confirmgame = confirm("Would you like to play a game "+ userName);
+
+    if(confirmgame){
+        wordSelect();
+    }
+    else{
+        alert("Come on "+userName+" play");
+        wordSelect();
+    }
+};
+
 // Run "StartGame" function
+startGame();
 
-// Prompt the user to play a game by "pressing any key"
+function wordSelect(){
+    alert("Press Enter to Begin");
 
-// Start game if user accepts, else prompt to "come on, play"
+    // Define Wordbank Object
+    wordBank =["Westworld", "StarTrek", "Legion", "GameofThrones", "Archer", "Simpsons","BobsBurgers","JaneTheVirgin","SeinFeld","RachelMaddow"];
 
-// Define Wordbank Object
+    // Pick random word from Wordbank
+    currentWord = wordBank[(Math.floor(Math.random()*Main.Numinwordbank))];
 
-// Pick random word from Wordbank
+};
+
+
+
+
+
 
 // Store random wordbank as "currentWord". Break "currentword" into an array of letters called "selectedWord"
 
