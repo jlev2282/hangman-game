@@ -30,6 +30,9 @@ startGame();
 // loop over "selectedWord" and push "_" into "selectDashes" array
 // Define counter for guesses remaining as "guessesRemaining". Set equal to "5"
 // Define "lettersRemaining" as an array equal to "selectedWord.length"
+ selectedWord=[];
+ selectDashes=[];
+ 
 function wordSelect(){
     alert("Press Enter to Begin");
 
@@ -43,15 +46,13 @@ function wordSelect(){
 
 
         for(var i=0; i<currentWord.lenth; i++) {
-            selectedWord=[];
-            selectDashes=[];
 
             selectedWord.push(currentWord.charAt(i));
             selectDashes.push("_");
         }
         console.log(selectedWord);
         console.log(selectDashes);
-        
+
     lettersRemaining=selectedWord.length;
     $("lettersNWord").text(lettersRemaining);    
     guessesRemaining=5;
