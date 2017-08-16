@@ -74,25 +74,28 @@ function wordSelect(){
 function letterGuess(){
     document.onkeyup = function(event){
 	var userguess=event.key;
-	console.log(userguess);
-	if (LettersGuessed.indexOf(userguess)===-1){
-		LettersGuessed.push(userguess);
-		document.getElementById("letters-guessed").innerHTML=LettersGuessed;
-	}
+	console.log(userGuess);
+    findLetter();
+	// if (LettersGuessed.indexOf(userGuess)===-1){
+	// 	LettersGuessed.push(userGuess);
+	// 	document.getElementById("letters-guessed").innerHTML=LettersGuessed;
+	// }
 
 };
 
-LettersGuessed = [];
-
-};
+//holds letters grabbed from onkeyup listener
+lettersGuessed = [];
 
 //loop over selected word array with guess and change index in dashes array, then update dashes on screen
-function findLetter(userguess){
+function findLetter(userGuess){
     for(var i=0; i<selectedWord.length; i++) {
-        if(userguess==selectedWord[i]){
+        if(userGuess==selectedWord[i]){
             alert("Good guess");
             selectDashes[i]=selectedWord[i];
             putDashes();
+        }
+        else {
+            lettersGuessed.push(userGuess);
         }
     }
 };
