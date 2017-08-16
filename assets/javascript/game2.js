@@ -40,11 +40,12 @@ function wordSelect(){
     currentWord = wordBank[(Math.floor(Math.random()*wordBank.length+1))];
     console.log(currentWord);
 
-        selectedWord=[];
-        selectDashes=[];
+
 
         for(var i=0; i<currentWord.lenth; i++) {
-        
+            selectedWord=[];
+            selectDashes=[];
+            
             selectedWord.push(currentWord.charAt(i));
             selectDashes.push("_");
         }
