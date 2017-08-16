@@ -45,11 +45,13 @@ function wordSelect(){
         for(var i=0; i<currentWord.lenth; i++) {
             selectedWord=[];
             selectDashes=[];
-            
+
             selectedWord.push(currentWord.charAt(i));
             selectDashes.push("_");
         }
-
+        console.log(selectedWord);
+        console.log(selectDashes);
+        
     lettersRemaining=selectedWord.length;
     $("lettersNWord").text(lettersRemaining);    
     guessesRemaining=5;
