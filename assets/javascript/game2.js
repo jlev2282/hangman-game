@@ -45,7 +45,7 @@ function wordSelect(){
 
 
 
-        for(var i=0; i<currentWord.lenth; i++) {
+        for(var i=0; i<currentWord.length; i++) {
 
             selectedWord[i]=currentWord.charAt[i];
             selectDashed[i]="_";
@@ -57,9 +57,10 @@ function wordSelect(){
         console.log(selectDashes);
 
     lettersRemaining=selectedWord.length;
-    $("lettersNWord").text(lettersRemaining);    
+    document.getElementById("lettersNWord").innerHTML=lettersRemaining;
+    // $("lettersNWord").text(lettersRemaining);    
     guessesRemaining=5;
-    $("guessCounter").text(guessesRemaining);
+    document.getElementById("guessCounter").innerHTML=guessesRemaining;
 };
 
 function letterGuess(){
