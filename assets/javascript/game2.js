@@ -66,10 +66,11 @@ function wordSelect(){
     putDashes();
 };
 
-function putDashes(selectDashes){
-    document.getElementById("currentWord").innerHTML=selectDashes;
-};
+// function putDashes(selectDashes){
+//     document.getElementById("currentWord").innerHTML=selectDashes;
+// };
 
+// Event listener to capture upkeys.
 function letterGuess(){
     document.onkeyup = function(event){
 	var userguess=event.key;
@@ -85,16 +86,17 @@ LettersGuessed = [];
 
 };
 
+//loop over selected word array with guess and change index in dashes array, then update dashes on screen
+function findLetter(userguess){
+    for(var i=0; i<selectedWord.length; i++) {
+        if(userguess==selectedWord[i]){
+            alert("Good guess");
+            selectDashes[i]=selectedWord[i];
+            putDashes();
+        }
+    }
+};
 
-
-
-
-
-
-
-
-
-// Event listener to capture upkeys.
 // Store upkey event as "currentGuess"
 
 // loop over "selectedWord" array to compare "currentGuess". If "currentGuess" is equal to "selectedWord"[i], alert "Good Guess",  change
