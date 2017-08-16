@@ -32,7 +32,7 @@ startGame();
 // Define "lettersRemaining" as an array equal to "selectedWord.length"
  selectedWord=[];
  selectDashes=[];
- 
+
 function wordSelect(){
     alert("Press Enter to Begin");
 
@@ -47,8 +47,11 @@ function wordSelect(){
 
         for(var i=0; i<currentWord.lenth; i++) {
 
-            selectedWord.push(currentWord.charAt(i));
-            selectDashes.push("_");
+            selectedWord[i]=currentWord.charAt[i];
+            selectDashed[i]="_";
+
+            // selectedWord.push(currentWord.charAt(i));
+            // selectDashes.push("_");
         }
         console.log(selectedWord);
         console.log(selectDashes);
