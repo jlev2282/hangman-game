@@ -49,7 +49,7 @@ function wordSelect(){
         for(var i=0; i<currentWord.length; i++) {
 
             selectedWord[i]=currentWord.charAt[i];
-            selectDashed[i]="_";
+            selectDashes[i]="_";
 
             // selectedWord.push(currentWord.charAt(i));
             // selectDashes.push("_");
@@ -65,6 +65,17 @@ function wordSelect(){
 };
 
 function letterGuess(){
+    document.onkeyup = function(event){
+	var userguess=event.key;
+	console.log(userguess);
+	if (LettersGuessed.indexOf(userguess)===-1){
+		LettersGuessed.push(userguess);
+		document.getElementById("letters-guessed").innerHTML=LettersGuessed;
+	}
+
+};
+
+LettersGuessed = [];
 
 };
 
