@@ -62,6 +62,12 @@ function wordSelect(){
     // $("lettersNWord").text(lettersRemaining);    
     guessesRemaining=5;
     document.getElementById("guessCounter").innerHTML=guessesRemaining;
+
+    putDashes();
+};
+
+function putDashes(selectDashes){
+    document.getElementById("currentWord").innerHTML=selectDashes;
 };
 
 function letterGuess(){
