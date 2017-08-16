@@ -40,16 +40,23 @@ function wordSelect(){
     currentWord = wordBank[(Math.floor(Math.random()*wordBank.length+1))];
     console.log(currentWord);
 
+        selectedWord=[];
+        selectDashes=[];
+
         for(var i=0; i<currentWord.lenth; i++) {
-            selectedWord=[];
-            selectDashes=[];
-            
-            currentWord.charAt(i).push(selectedWord);
+        
+            selectedWord.push(currentWord.charAt(i));
             selectDashes.push("_");
         }
-    lettersRemaining=selectedWord.length;    
+
+    lettersRemaining=selectedWord.length;
+    $("lettersNWord").text(lettersRemaining);    
     guessesRemaining=5;
     $("guessCounter").text(guessesRemaining);
+};
+
+function letterGuess(){
+
 };
 
 
