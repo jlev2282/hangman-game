@@ -25,22 +25,21 @@ Words.List[10] = "rachelmaddow";
 Words.length = Words.List.length;
 
 //..the js for the array ..//
-Main = {};
-Main.WordArray = [];
-Main.WordUArray = [];
+Main= {
+	WordArray: [],
+	WordUArray: [],
+	Guesses: 7,
+	Numinwordbank: Words.length,
+	Word: "",
+	WordU: "",
+};
 
-Main.Guesses = 7;
-Main.Numinwordbank = Words.length;
-
-Main.Word = "";
-Main.WordU = "";
-
-Main.PullWord = function() {
+function pullWord() {
 	Main.Word = Words.List[(Math.floor(Math.random()*Main.Numinwordbank))];
 }
 
 Main.SetUnderline = function(){
-	Main.PullWord();
+	pullWord();
 	console.log(Main.Word);
 	for (i=0; i<Main.Word.length; i++){
 		Main.WordArray[i] = Main.Word.charAt(i)

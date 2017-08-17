@@ -45,26 +45,25 @@ function wordSelect(){
         selectedWord=[];
         selectDashes=[];
 
+        selectedWord=currentWord.split("");
 
         for(var i=0; i<currentWord.length; i++) {
 
-            selectedWord[i]=currentWord.charAt[i];
             selectDashes[i]="_";
-
-            // selectedWord.push(currentWord.charAt(i));
-            // selectDashes.push("_");
         }
+
         console.log(selectedWord);
         console.log(selectDashes);
 
     lettersRemaining=selectedWord.length;
-    document.getElementById("lettersNWord").innerHTML=lettersRemaining;
-    // $("lettersNWord").text(lettersRemaining);    
+    document.getElementById("lettersNWord").innerHTML=lettersRemaining;   
     guessesRemaining=5;
     document.getElementById("guessCounter").innerHTML=guessesRemaining;
 
-    putDashes();
+    // putDashes();
 };
+
+letterGuess();
 
 // function putDashes(selectDashes){
 //     document.getElementById("currentWord").innerHTML=selectDashes;
@@ -72,15 +71,14 @@ function wordSelect(){
 
 // Event listener to capture upkeys.
 function letterGuess(){
-    document.onkeyup = function(event){
-	var userguess=event.key;
+    document.onkeypress = function(event){
+	var userGuess=event.key;
 	console.log(userGuess);
     findLetter();
 	// if (LettersGuessed.indexOf(userGuess)===-1){
 	// 	LettersGuessed.push(userGuess);
 	// 	document.getElementById("letters-guessed").innerHTML=LettersGuessed;
-	// }
-
+	}
 };
 
 //holds letters grabbed from onkeyup listener
