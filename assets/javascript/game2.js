@@ -69,12 +69,14 @@ letterGuess();
 //     document.getElementById("currentWord").innerHTML=selectDashes;
 // };
 
+var userGuess="";
+
 // Event listener to capture upkeys.
 function letterGuess(){
     document.onkeypress = function(event){
-	var userGuess=event.key;
+	userGuess=event.key;
 	console.log(userGuess);
-    findLetter();
+    findLetter(userGuess);
 	// if (LettersGuessed.indexOf(userGuess)===-1){
 	// 	LettersGuessed.push(userGuess);
 	// 	document.getElementById("letters-guessed").innerHTML=LettersGuessed;
@@ -85,17 +87,19 @@ function letterGuess(){
 lettersGuessed = [];
 
 //loop over selected word array with guess and change index in dashes array, then update dashes on screen
-function findLetter(userGuess){
+function findLetter(){
     for(var i=0; i<selectedWord.length; i++) {
         if(userGuess==selectedWord[i]){
             alert("Good guess");
             selectDashes[i]=selectedWord[i];
-            putDashes();
-        }
-        else {
-            lettersGuessed.push(userGuess);
         }
     }
+    guessesRemaining -=1;
+    document.getElementById("guessCounter").innerHTML=guessesRemaining;
+    // putDashes();
+    lettersGuessed.push(userGuess);
+    console.log(lettersGuessed);
+    letterGuess();
 };
 
 // Store upkey event as "currentGuess"
