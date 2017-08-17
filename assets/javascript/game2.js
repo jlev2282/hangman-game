@@ -70,6 +70,7 @@ letterGuess();
 // };
 
 var userGuess="";
+var correctGuesses=0;
 
 // Event listener to capture upkeys.
 function letterGuess(){
@@ -90,19 +91,32 @@ lettersGuessed = [];
 function findLetter(){
     for(var i=0; i<selectedWord.length; i++) {
         if(userGuess==selectedWord[i]){
-            alert("Good guess");
+            alert("Good guess!");
             selectDashes[i]=selectedWord[i];
+            correctGuesses++;   
         }
     }
+
+    lettersRemaining -=correctGuesses;
+    correctGuesses=0;
     guessesRemaining -=1;
     document.getElementById("guessCounter").innerHTML=guessesRemaining;
+    document.getElementById("lettersNWord").innerHTML=lettersRemaining; 
     // putDashes();
     lettersGuessed.push(userGuess);
     console.log(lettersGuessed);
+
+        if(lettersRemaining>0){
     letterGuess();
+        }
+        else {
+            alert(userName+ ", You Win!");
+            startGame;
+        }
+
 };
 
-// Store upkey event as "currentGuess"
+
 
 // loop over "selectedWord" array to compare "currentGuess". If "currentGuess" is equal to "selectedWord"[i], alert "Good Guess",  change
 // "selectDashes[i]" = selectedWord[i], decrease "lettersRemaining" by "1", else decrease "guessesRemaining" by "1"
