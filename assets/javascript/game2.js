@@ -31,9 +31,8 @@ startGame();
 // Define "lettersRemaining" as an array equal to "selectedWord.length"
 
 
-selectDashes=[];
 
-function wordSelect(selectDashes){
+function wordSelect(){
 
     // Define Wordbank Object
     wordBank =["Westworld", "StarTrek", "Legion", "GameofThrones", "Archer", "Simpsons","BobsBurgers","JaneTheVirgin","SeinFeld","RachelMaddow"];
@@ -42,7 +41,9 @@ function wordSelect(selectDashes){
     currentWord = wordBank[(Math.floor(Math.random()*wordBank.length+1))];
     console.log(currentWord);
 
+    selectDashes=[];
     selectedWord=[];
+
 
         selectedWord=currentWord.split("");
 
@@ -65,10 +66,9 @@ function wordSelect(selectDashes){
 
 
 //function that takes each entry from selectdashes array and sets the html of "currentWord" to it
-function putDashes(selectDashes){
+function putDashes(){
     for(var i=0; i<selectDashes.length; i++) {
-    document.getElementById("currentWord").innerHTML=currentWord;
-    // document.getElementById("currentWord").innerHTML=selectDashes[i];
+    document.getElementById("currentword").innerHTML=selectDashes[i];
     }
 };
 
