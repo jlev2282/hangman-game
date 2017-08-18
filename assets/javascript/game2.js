@@ -1,4 +1,4 @@
-var userName= prompt("HI. What's your name");
+userName= prompt("Hi. What's your name");
 
 // Define "startGame" function
 function startGame (){
@@ -8,16 +8,15 @@ function startGame (){
         wordSelect();
     }
     else{
-        alert("Come on "+userName+" play");
-        var confirmGame2 = confirm("Would you like to play a game "+userName+"....pleaaaase");
+        confirmGame2= confirm("Come on "+userName+" play.");
 
-        if(confirmGame2){
-        wordSelect();
-        }
-        else{
-            alert("Too bad. You're playing -_-");
+            if(confirmGame2){
             wordSelect();
-        }
+            }
+            else{
+                alert("Too bad. You're playing -_-");
+                wordSelect();
+            }
     }
 };
 
@@ -32,8 +31,9 @@ startGame();
 // Define "lettersRemaining" as an array equal to "selectedWord.length"
 
 
-function wordSelect(){
-    alert("Press Enter to Begin");
+selectDashes=[];
+
+function wordSelect(selectDashes){
 
     // Define Wordbank Object
     wordBank =["Westworld", "StarTrek", "Legion", "GameofThrones", "Archer", "Simpsons","BobsBurgers","JaneTheVirgin","SeinFeld","RachelMaddow"];
@@ -42,14 +42,13 @@ function wordSelect(){
     currentWord = wordBank[(Math.floor(Math.random()*wordBank.length+1))];
     console.log(currentWord);
 
-        selectedWord=[];
-        selectDashes=[];
+    selectedWord=[];
 
         selectedWord=currentWord.split("");
 
         for(var i=0; i<currentWord.length; i++) {
-
             selectDashes[i]="_";
+            // selectDashes.push("_");
         }
 
         console.log(selectedWord);
@@ -60,17 +59,23 @@ function wordSelect(){
     guessesRemaining=5;
     document.getElementById("guessCounter").innerHTML=guessesRemaining;
 
-    // putDashes();
+    putDashes();
 };
 
-letterGuess();
 
-// function putDashes(selectDashes){
-//     document.getElementById("currentWord").innerHTML=selectDashes;
-// };
+
+//function that takes each entry from selectdashes array and sets the html of "currentWord" to it
+function putDashes(selectDashes){
+    for(var i=0; i<selectDashes.length; i++) {
+    document.getElementById("currentWord").innerHTML=currentWord;
+    // document.getElementById("currentWord").innerHTML=selectDashes[i];
+    }
+};
 
 var userGuess="";
 var correctGuesses=0;
+
+letterGuess();
 
 // Event listener to capture upkeys.
 function letterGuess(){
@@ -96,6 +101,8 @@ function findLetter(){
             correctGuesses++;   
         }
     }
+
+    putDashes();
 
     lettersRemaining -=correctGuesses;
     correctGuesses=0;
