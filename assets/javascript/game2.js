@@ -50,6 +50,7 @@ function wordSelect(){
         for(var i=0; i<currentWord.length; i++) {
             selectDashes[i]="_";
             // selectDashes.push("_");
+            $("#currentWord").prepend(selectDashes[i]);
         }
 
         console.log(selectedWord);
@@ -67,9 +68,11 @@ function wordSelect(){
 
 //function that takes each entry from selectdashes array and sets the html of "currentWord" to it
 function putDashes(){
-    for(var i=0; i<selectDashes.length; i++) {
-    document.getElementById("currentword").innerHTML=selectDashes[i];
-    }
+    // for(var i=0; i<selectDashes.length; i++) {
+    // document.getElementById("currentword").innerHTML=selectDashes[i];
+    // }
+    selectDashes.toString();
+    document.getElementById("currentWord").innerHTML=selectDashes;
 };
 
 var userGuess="";
@@ -89,6 +92,7 @@ function letterGuess(){
 	}
 };
 
+
 //holds letters grabbed from onkeyup listener
 lettersGuessed = [];
 
@@ -98,11 +102,12 @@ function findLetter(){
         if(userGuess==selectedWord[i]){
             alert("Good guess!");
             selectDashes[i]=selectedWord[i];
-            correctGuesses++;   
+            correctGuesses++;
         }
     }
 
-    putDashes();
+
+    putDashes(selectDashes);
 
     lettersRemaining -=correctGuesses;
     correctGuesses=0;
@@ -116,8 +121,14 @@ function findLetter(){
         if(lettersRemaining>0){
     letterGuess();
         }
-        else {
+        
+        else if (lettersRemaining=0){
             alert(userName+ ", You Win!");
+            startGame;
+        }
+        
+        else if (guessesRemaining=0){
+            alert("Sorry "+userName+". You lose :(");
             startGame;
         }
 
