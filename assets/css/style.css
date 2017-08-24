@@ -23,6 +23,15 @@
 	text-align: center;
 	height: auto;
 	font-weight: bold;
+	background-color:red;
+}
+
+.stage2 {
+	border-radius: 5px;
+	text-align: center;
+	height: auto;
+	font-weight: bold;
+	background-color: white;
 }
 
 .dashed {

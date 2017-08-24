@@ -18,7 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body class="main">
-	<div class="container cont boxed dashed">
+	<div class="container cont boxed dashed stage">
 			<div class="row banner dashed">
 				<div class="col-md-12">
 					<h1 class="cent">The TV Show Game!</h1>
@@ -28,17 +28,23 @@
 				<div class="col-md-6 display">
 					<img src="assets/images/kidtv1.jpg" alt="kittv" class="displayimg">
 				</div>
-				<div class="col-md-6 stage solid">
-					<div >Wins<br>
-						<div id="wincounter">0</div>
+				<div class="col-md-6 stage2 solid">
+					<div class="row">
+						<div >Wins<br>
+							<div id="wincounter">0</div>
+						</div>
+						<p>Current Word</p>
+						<p id="currentword">test</p>
+						<p id="lettersNWord"></p>
+						<p>Number of Guesses Remaining</p>
+						<div id="guessCounter">0</div>
+						<p>Letters Guessed</p>
+						<div id="lettersguessed"></div>
 					</div>
-					<p>Current Word</p>
-					<p id="currentword">test</p>
-					<p id="lettersNWord"></p>
-					<p>Number of Guesses Remaining</p>
-					<div id="guessCounter">0</div>
-					<p>Letters Guessed</p>
-					<div id="lettersguessed"></div>
+					<div class="row">
+						<header>Clue</header>
+						<section id="clue">If you need a clue to help you along, look here</section>
+					</div>
 				</div>
 			</div>
 	</div>
