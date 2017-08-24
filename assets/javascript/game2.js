@@ -47,10 +47,11 @@ function wordSelect(){
 
         selectedWord=currentWord.split("");
 
+        $( "#currentword" ).empty();
         for(var i=0; i<currentWord.length; i++) {
             selectDashes[i]="_";
             // selectDashes.push("_");
-            $("#currentWord").prepend(selectDashes[i]);
+            $("#currentword").prepend(selectDashes[i]);
         }
 
         console.log(selectedWord);
@@ -61,7 +62,7 @@ function wordSelect(){
     guessesRemaining=5;
     document.getElementById("guessCounter").innerHTML=guessesRemaining;
 
-    putDashes();
+    // putDashes();
 };
 
 
@@ -71,8 +72,9 @@ function putDashes(){
     // for(var i=0; i<selectDashes.length; i++) {
     // document.getElementById("currentword").innerHTML=selectDashes[i];
     // }
+    $("#currentword").empty();
     selectDashes.toString();
-    document.getElementById("currentWord").innerHTML=selectDashes;
+    document.getElementById("currentword").innerHTML=selectDashes;
 };
 
 var userGuess="";
