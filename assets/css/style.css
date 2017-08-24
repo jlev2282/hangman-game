@@ -45,9 +45,10 @@
 }
 
 .foot {
+	color: red;
 	position: fixed;
 	bottom: 0;
-	background-color: white;
+	background-color: black;
 }
 
 .footer {
