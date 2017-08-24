@@ -1,4 +1,9 @@
 userName= prompt("Hi. What's your name");
+var userGuess="";
+var correctGuesses=0;
+
+//holds letters grabbed from onkeyup listener
+lettersGuessed = [];
 
 // Define "startGame" function
 function startGame (){
@@ -35,7 +40,7 @@ startGame();
 function wordSelect(){
 
     // Define Wordbank Object
-    wordBank =["Westworld", "StarTrek", "Legion", "GameofThrones", "Archer", "Simpsons","BobsBurgers","JaneTheVirgin","SeinFeld","RachelMaddow"];
+    wordBank =["Westworld", "The Magicians", "Iron Fist", "Star Trek", "Stranger Things", "Legion", "Game of Thrones", "Archer", "Simpsons","Bobs Burgers","Jane the Virgin","SeinFeld","Rachel Maddow"];
 
     // Pick random word from Wordbank
     currentWord = wordBank[(Math.floor(Math.random()*wordBank.length+1))];
@@ -51,7 +56,7 @@ function wordSelect(){
         for(var i=0; i<currentWord.length; i++) {
             selectDashes[i]="_";
             // selectDashes.push("_");
-            $("#currentword").prepend(selectDashes[i]);
+            $("#currentword").prepend(selectDashes[i]+" ");
         }
 
         console.log(selectedWord);
@@ -77,9 +82,6 @@ function putDashes(){
     document.getElementById("currentword").innerHTML=selectDashes;
 };
 
-var userGuess="";
-var correctGuesses=0;
-
 letterGuess();
 
 // Event listener to capture upkeys.
@@ -95,9 +97,6 @@ function letterGuess(){
 };
 
 
-//holds letters grabbed from onkeyup listener
-lettersGuessed = [];
-
 //loop over selected word array with guess and change index in dashes array, then update dashes on screen
 function findLetter(){
     for(var i=0; i<selectedWord.length; i++) {
@@ -106,35 +105,45 @@ function findLetter(){
             selectDashes[i]=selectedWord[i];
             correctGuesses++;
         }
-    }
-
+    };
 
     putDashes(selectDashes);
 
     lettersRemaining -=correctGuesses;
     correctGuesses=0;
-    guessesRemaining -=1;
+    // guessesRemaining -=1;
     document.getElementById("guessCounter").innerHTML=guessesRemaining;
     document.getElementById("lettersNWord").innerHTML=lettersRemaining; 
     // putDashes();
     lettersGuessed.push(userGuess);
+    document.getElementById("lettersguessed").innerHTML=lettersGuessed;
+
+    winCheck(lettersRemaining, guessesRemaining);
     console.log(lettersGuessed);
 
-        if(lettersRemaining>0){
-    letterGuess();
-        }
-        
-        else if (lettersRemaining=0){
-            alert(userName+ ", You Win!");
-            startGame;
-        }
-        
-        else if (guessesRemaining=0){
-            alert("Sorry "+userName+". You lose :(");
-            startGame;
-        }
-
 };
+
+function winCheck(num1, num2) {
+    if(num1=0){
+        alert(userName+ ", You Win!");
+        startGame();
+        console.log("you win!");
+    };
+    // if(num1>0){
+    //     letterGuess();
+    //     }
+        
+    //     else if (num1=0){
+    //         alert(userName+ ", You Win!");
+    //         startGame();
+    //     }
+        
+    //     else if (num2=0){
+    //         alert("Sorry "+userName+". You lose :(");
+    //         startGame();
+    //     }
+};
+
 
 
 
